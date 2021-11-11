@@ -36,9 +36,9 @@ jobs:
       - name: Deploy to Amazon ECS
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
-          task-definition: task-definition.json
-          service: my-service
-          cluster: my-cluster
+          task-definition: demotaskdefinition
+          service: demoappservice
+          cluster: demoappcluster
           wait-for-service-stability: true
 
 
