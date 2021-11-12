@@ -25,7 +25,9 @@ jobs:
 
       - name: ECS Deployment
         uses: donaldpiret/ecs-deploy@v0.2.0
-
+        with:
+          cluster: demoappcluster
+          target: demoappservice
 
       # - name: Docker Setup Buildx
       #   uses: docker/setup-buildx-action@v1.6.0
