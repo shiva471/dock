@@ -52,7 +52,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: app:latest
+          tags: test:latest
 
       # - name: Build and push
       #   id: docker_build
