@@ -22,10 +22,10 @@ jobs:
       - name: Install npm dependencies
         run: npm install
 
-       - name: push command
+      - name: push command
         run: aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 189855014446.dkr.ecr.ap-south-1.amazonaws.com
 
-        
+
       - name: ECS Deployment
         uses: donaldpiret/ecs-deploy@v0.2.0
         with:
