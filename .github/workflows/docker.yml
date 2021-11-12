@@ -22,6 +22,11 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
 
+      - name: Download task definition
+        run: |
+          aws ecs describe-task-definition --task-definition my-task-definition-family --query taskDefinition > task-definition.json
+
+
       - name: Build, tag, and push image to Amazon ECR
         id: build-image
         env:
@@ -45,6 +50,6 @@ jobs:
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
           task-definition: ${{ steps.task-def.outputs.task-definition }}
-          service: my-service
-          cluster: my-cluster
+          service: demoappservice
+          cluster: demoappcluster
           wait-for-service-stability: true
