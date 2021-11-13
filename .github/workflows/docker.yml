@@ -24,7 +24,7 @@ jobs:
 
       - name: Download task definition
         run: |
-          aws ecs describe-task-definition --task-definition my-task-definition-family --query taskDefinition > task-definition.json
+          aws ecs describe-task-definition --task-definition demotaskdefination --query taskDefinition > task-definition.json
 
 
       - name: Build, tag, and push image to Amazon ECR
@@ -42,7 +42,7 @@ jobs:
         id: task-def
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
-          task-definition: demotaskdefination
+          task-definition: task-definition.json
           container-name: democontainer
           image: ${{ steps.build-image.outputs.image }}
 
